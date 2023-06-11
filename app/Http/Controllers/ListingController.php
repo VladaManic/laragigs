@@ -10,8 +10,10 @@ class ListingController extends Controller
     // Get all listings
     public function index()
     {
-        return view('listings', [
-            'listings' => Listing::all()
+        //dd(request());
+        return view('listings.index', [
+            //'listings' => Listing::all()
+            'listings' => Listing::latest()->filter(request(['tag']))->get()
         ]);
     }
 
@@ -21,7 +23,7 @@ class ListingController extends Controller
         // $exist = Listing::find($listing);
 
         // if ($exist) {
-        return view('listing', [
+        return view('listings.show', [
             'listing' => $listing
         ]);
         // } else {
