@@ -17,6 +17,12 @@ class ListingController extends Controller
         ]);
     }
 
+    // Get create listings form page
+    public function create()
+    {
+        return view('listings.create');
+    }
+
     // Get single listing
     public function show(Listing $listing)
     {

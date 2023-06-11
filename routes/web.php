@@ -27,7 +27,8 @@ use App\Http\Controllers\ListingController;
 //All listings
 Route::get('/', [ListingController::class, 'index']);
 
-
+//Create form page
+Route::get('/listings/create', [ListingController::class, 'create']);
 
 
 //Single listing (GOES LAST!)
