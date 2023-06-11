@@ -30,6 +30,10 @@ Route::get('/', [ListingController::class, 'index']);
 //Create form page
 Route::get('/listings/create', [ListingController::class, 'create']);
 
+//Store listing data
+Route::post('/listings', [ListingController::class, 'store']);
+
+
 
 //Single listing (GOES LAST!)
 Route::get('/listings/{listing}', [ListingController::class, 'show']);
