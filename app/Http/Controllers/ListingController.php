@@ -21,6 +21,7 @@ class ListingController extends Controller
         ]);
     }
 
+
     // Get single listing
     public function show(Listing $listing)
     {
@@ -35,11 +36,13 @@ class ListingController extends Controller
         //}
     }
 
+
     // Get create listings form page
     public function create()
     {
         return view('listings.create');
     }
+
 
     //Store listing data
     public function store(Request $request)
@@ -54,6 +57,11 @@ class ListingController extends Controller
             'tags' => 'required',
             'description' => 'required'
         ]);
+
+
+        if ($request->hasFile('logo')) {
+            $formFields['logo'] = $request->file('logo')->store('logos', 'public');
+        }
 
         Listing::create($formFields);
 
