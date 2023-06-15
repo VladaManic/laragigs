@@ -28,6 +28,12 @@
 								</div>
 						</div>
 				</x-card>
+
+				<x-card>
+					<a href="/listings/{{$listing->id}}/edit">
+						<i class="fa-solid fa-pencil"></i> Edit
+					</a>
+				</x-card>
 		</div>
     
 @endsection
