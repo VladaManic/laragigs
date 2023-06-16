@@ -1,7 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Models\Listing;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\ListingController;
 
 /*
@@ -44,3 +45,9 @@ Route::delete('listings/{listing}', [ListingController::class, 'destroy']);
 
 //Single listing (GOES LAST!)
 Route::get('/listings/{listing}', [ListingController::class, 'show']);
+
+//Show Register/Create form
+Route::get('/register', [UserController::class, 'create']);
+
+//Show Register/Create form
+Route::post('/users', [UserController::class, 'store']);
