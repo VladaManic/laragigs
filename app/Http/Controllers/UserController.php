@@ -14,6 +14,7 @@ class UserController extends Controller
         return view('users.register');
     }
 
+
     //Create New User
     public function store(Request $request)
     {
@@ -33,5 +34,17 @@ class UserController extends Controller
         auth()->login($user);
 
         return redirect('/')->with('message', 'User created and logged in');
+    }
+
+
+    //Logout User
+    public function logout(Request $request)
+    {
+        auth()->logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/')->with('message', 'You have been logged out.');
     }
 }

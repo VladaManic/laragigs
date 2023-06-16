@@ -46,8 +46,12 @@ Route::delete('listings/{listing}', [ListingController::class, 'destroy']);
 //Single listing (GOES LAST!)
 Route::get('/listings/{listing}', [ListingController::class, 'show']);
 
+
 //Show Register/Create form
 Route::get('/register', [UserController::class, 'create']);
 
 //Show Register/Create form
 Route::post('/users', [UserController::class, 'store']);
+
+//Logout user
+Route::post('/logout', [UserController::class, 'logout']);
